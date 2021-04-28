@@ -1,9 +1,6 @@
 package be.thomasmore.hummingbee.Controllers;
 
-import be.thomasmore.hummingbee.Model.Podcast;
 import be.thomasmore.hummingbee.Repositories.PodcastRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,13 +8,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/podcast")
 public class PodcastController {
-    private Logger logger = LoggerFactory.getLogger(PodcastController.class);
-
     @Autowired
     private PodcastRepository podcastRepository;
+    @Autowired
+    private PodcasterRepository podcasterRepository;
+
 
     @GetMapping({ "/podcasts"})
     public String home(Model model) {
@@ -34,4 +34,11 @@ public class PodcastController {
         return "podcast/podcastdetails";
     }
 
+
+    @GetMapping( "/podcastlist")
+    public String podcastlist(Model model) {
+        List<Podcaster> podcasters = podcasterRepository.findAll();
+        model.addAttribute("podcasterlist", podcasters);
+        return "podcastlist";
+    }
 }
