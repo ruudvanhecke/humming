@@ -17,5 +17,8 @@ public class Podcast {
     private String beschrijving;
 
 
+    public int getId(){
+        return id;
+    }
 
 }
