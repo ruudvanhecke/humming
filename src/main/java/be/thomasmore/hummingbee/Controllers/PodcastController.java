@@ -1,6 +1,9 @@
 package be.thomasmore.hummingbee.Controllers;
 
+import be.thomasmore.hummingbee.Model.Podcast;
+import be.thomasmore.hummingbee.Model.Podcaster;
 import be.thomasmore.hummingbee.Repositories.PodcastRepository;
+import be.thomasmore.hummingbee.Repositories.PodcasterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
