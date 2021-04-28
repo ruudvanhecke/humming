@@ -1,0 +1,32 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" type="text/css" media="all" th:href="@{../../static/css/style.css}" href="../../static/css/style.css" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="../../static/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>Podcast List</title>
+</head>
+<body>
+<div class="nav">
+
+    <div th:replace="fragments/headerfooter :: header">Hier komt de header</div>
+</div>
+
+<div class="row1">
+    <div class="row1content">
+        <h2>Podcasters</h2>
+        <div class="podcastlist">
+            <div th:each="podcasters, status: ${podcasterlist}">
+                <a class="buttonLook mediumButton" th:href="@{'/podcastdetails/'+${podcasters.id}}">
+                    <span th:text="${podcasters.getName()}">Hier komt de list</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/headerfooter :: footer">Hier komt de footer</div>
+</body>
+</html>
